@@ -62,6 +62,6 @@ func init() {
 	fracTimeFormat[0] = "2006-01-02 15:04:05"
 
 	for i := 1; i <= 6; i++ {
-		fracTimeFormat[i] = fmt.Sprintf("2006-01-02 15:04:05.%s", strings.Repeat("0", i))
+		fracTimeFormat[i] = "2006-01-02 15:04:05." + strings.Repeat("0", i)
 	}
 }

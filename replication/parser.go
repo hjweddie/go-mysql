@@ -367,12 +367,12 @@ func (p *BinlogParser) Parse(data []byte) (*BinlogEvent, error) {
 		return nil, fmt.Errorf("invalid data size %d in event %s, less event length %d", len(data), h.EventType, eventLen)
 	}
 
-	e, err := p.parseEvent(h, data, rawData)
+	e, err := p.parseEvent(h, data, data)
 	if err != nil {
 		return nil, err
 	}
 
-	return &BinlogEvent{RawData: rawData, Header: h, Event: e}, nil
+	return &BinlogEvent{RawData: data, Header: h, Event: e}, nil
 }
 
 func (p *BinlogParser) verifyCrc32Checksum(rawData []byte) error {

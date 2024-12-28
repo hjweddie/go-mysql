@@ -466,7 +466,7 @@ func (e *TableMapEvent) Dump(w io.Writer) {
 	}
 	nameFmt := "  %s"
 	if nameMaxLen > 0 {
-		nameFmt = fmt.Sprintf("  %%-%ds", nameMaxLen)
+		nameFmt = "  %%-" + strconv.FormatInt(int64(nameMaxLen), 10) + "s"
 	}
 
 	primaryKey := map[int]struct{}{}
